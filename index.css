@@ -157,5 +157,34 @@
 		line-height: var(--ff-line-height-s);
 		background: var(--black-main);
 		color: var(--white-off-white);
+		letter-spacing: -0.01em;
+	}
+
+	header,
+	footer {
+		font-family: var(--ff-sans);
+		font-size: var(--ff-step-1);
+		line-height: var(--ff-line-height-l);
+	}
+}
+
+@layer structure {
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.input-area {
+		margin-block-start: var(--spacing-l);
+	}
+
+	.input-area + .input-area {
+		margin-block-start: var(--spacing-xl);
+	}
+
+	p {
+		margin-block-start: var(--spacing-xxl);
+		max-width: 64ch;
 	}
 }
