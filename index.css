@@ -182,25 +182,33 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--spacing-m) var(--spacing-xs);
 	}
 
 	.links {
 		display: flex;
 		align-items: center;
 		gap: var(--spacing-xs);
+		flex-wrap: wrap;
+	}
+
+	.group {
+		display: flex;
 	}
 
 	.input-area {
-		margin-block-start: var(--spacing-l);
+		margin-block-start: var(--spacing-xl);
 	}
 
 	.input-area + .input-area {
-		margin-block-start: var(--spacing-xl);
+		margin-block-start: var(--spacing-l);
 	}
 
 	main {
 		max-width: 64ch;
 		margin-inline: auto;
+		padding-inline: var(--spacing-m);
 	}
 
 	p {
@@ -212,6 +220,11 @@
 	::selection {
 		background: var(--accent-pink);
 		color: var(--white-main);
+	}
+
+	.text {
+		display: inline-block;
+		text-wrap: nowrap;
 	}
 
 	.btn {
@@ -264,6 +277,102 @@
 
 			&:focus {
 				outline: 2px solid var(--accent-orange);
+			}
+		}
+	}
+
+	.header {
+		max-width: 1440px;
+		margin-inline: auto;
+		padding-inline: var(--spacing-m);
+		padding-block: var(--spacing-l);
+
+		h1 {
+			font-size: var(--ff-step-2);
+			font-weight: 700;
+			text-wrap: nowrap;
+			margin: 0;
+		}
+
+		.navigation {
+			.links {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				li {
+					display: flex;
+					gap: var(--spacing-xs);
+
+					.anchor {
+						position: relative;
+
+						&:hover > .dropdown,
+						&:focus-within > .dropdown {
+							display: block;
+						}
+					}
+
+					.drop-btn {
+						padding-block: 0;
+						padding-inline: var(--spacing-s);
+						border: 2px solid var(--white-main);
+						border-radius: var(--radius-l);
+						background: transparent;
+						color: var(--white-main);
+						text-decoration: none;
+						text-wrap: nowrap;
+						cursor: pointer;
+
+						&:hover {
+							background: var(--white-main);
+							color: var(--black-dark);
+
+							& > .dropdown {
+								display: block;
+							}
+						}
+
+						&.filled {
+							background: var(--white-main);
+							color: var(--black-main);
+							margin-block-end: var(--spacing-xs);
+
+							&:hover {
+								background: var(--accent-pink);
+								border-color: var(--accent-pink);
+								transform: translateX(15%);
+								transition: transform 0.1s ease-in;
+							}
+						}
+					}
+
+					.dropdown {
+						position: absolute;
+						top: 100%;
+						left: 0;
+
+						margin: 0;
+						padding: 0;
+						padding-block-start: var(--spacing-xs);
+						display: none;
+					}
+				}
+			}
+		}
+
+		.group {
+			span:first-child {
+				background: var(--accent-orange);
+				color: var(--black-darkpurple);
+				padding-inline: var(--spacing-s);
+			}
+
+			span:last-child {
+				background: var(--accent-pinker);
+				color: var(--black-darkpurple);
+				padding-inline: var(--spacing-s);
+				border-radius: var(--radius-xl);
 			}
 		}
 	}
@@ -370,6 +479,11 @@
 							calc((var(--value) * 100%) + (var(--value) * 27px))
 					);
 				}
+
+				&::selection {
+					background: var(--accent-yellow);
+					color: var(--black-darkred);
+				}
 			}
 		}
 
@@ -378,6 +492,10 @@
 				&:active,
 				&:focus {
 					outline: 2px solid var(--accent-oranger);
+				}
+
+				&::selection {
+					background: var(--accent-oranger);
 				}
 			}
 
@@ -395,6 +513,63 @@
 				top: -30px;
 				right: 36px;
 			}
+
+			.type-3 {
+				&:hover {
+					background: var(--accent-orange);
+				}
+
+				&:hover ~ .indicator {
+					background: var(--accent-orange);
+				}
+			}
 		}
+	}
+
+	.footer {
+		margin-block-start: var(--spacing-xxxl);
+		padding: var(--spacing-xs);
+		background: var(--black-lightblue);
+		color: var(--grey-bluer);
+		overflow: hidden;
+		mask-image: linear-gradient(
+			to right,
+			transparent 15%,
+			black 35%,
+			transparent 90%
+		);
+
+		p {
+			margin: 0;
+			text-wrap: nowrap;
+			text-transform: uppercase;
+			animation: move-text 20s linear backwards infinite;
+		}
+	}
+}
+
+@keyframes move-text {
+	from {
+		transform: translateX(50%);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@media (width <=1200px) {
+	.links {
+		li {
+			& > .text {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (width <=580px) {
+	.navigation {
+		order: 2;
 	}
 }
