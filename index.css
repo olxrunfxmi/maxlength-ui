@@ -243,6 +243,28 @@
 			writing-mode: vertical-rl;
 			border-radius: 0 var(--radius-m) var(--radius-m) 0;
 			margin-inline: -2px;
+
+			&:hover {
+				background: var(--grey-yellow);
+				color: var(--black-darkorange);
+			}
+		}
+
+		&.type-3 {
+			padding-inline: var(--spacing-s);
+			padding-block: var(--spacing-tiny) var(--spacing-l);
+			background: var(--accent-oranger);
+			color: var(--black-darkorange);
+			border-radius: var(--radius-m) var(--radius-m) var(--radius-s)
+				var(--radius-s);
+
+			position: absolute;
+			right: 36px;
+			bottom: calc(var(--spacing-xs) * -1);
+
+			&:focus {
+				outline: 2px solid var(--accent-orange);
+			}
 		}
 	}
 
@@ -348,6 +370,30 @@
 							calc((var(--value) * 100%) + (var(--value) * 27px))
 					);
 				}
+			}
+		}
+
+		&.area-3 {
+			textarea {
+				&:active,
+				&:focus {
+					outline: 2px solid var(--accent-oranger);
+				}
+			}
+
+			.indicator {
+				display: inline-block;
+				width: 107px;
+				text-align: center;
+				padding-inline: var(--spacing-s);
+				padding-block: var(--spacing-tiny) var(--spacing-xxs);
+				background: var(--accent-oranger);
+				color: var(--black-darkorange);
+				border-radius: var(--radius-m) var(--radius-m) 0 0;
+
+				position: absolute;
+				top: -30px;
+				right: 36px;
 			}
 		}
 	}
