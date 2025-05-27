@@ -227,6 +227,14 @@
 		text-wrap: nowrap;
 	}
 
+	.tighter {
+		margin-block-start: var(--spacing-l);
+	}
+
+	.spacer {
+		padding-block-start: var(--spacing-l);
+	}
+
 	.btn {
 		background: none;
 		border: none;
@@ -392,6 +400,8 @@
 		}
 
 		&.area-1 {
+			/* --value: 0.75; */
+
 			textarea {
 				&:active,
 				&:focus {
@@ -403,7 +413,6 @@
 			}
 
 			.circle-indicator {
-				--value: 0.75;
 				width: var(--spacing-l);
 				height: var(--spacing-l);
 				background: conic-gradient(
@@ -452,7 +461,8 @@
 		}
 
 		&.area-2 {
-			--value: 0.84;
+			/* --value: 0.84; */
+			--value: 0;
 			display: flex;
 			background: linear-gradient(
 				to right,
@@ -488,6 +498,28 @@
 		}
 
 		&.area-3 {
+			&::before {
+				content: "" attr(data-left) " left";
+				display: inline-block;
+				width: 107px;
+				text-align: center;
+				padding-inline: var(--spacing-s);
+				padding-block: var(--spacing-tiny) var(--spacing-xxs);
+				background: var(--accent-oranger);
+				color: var(--black-darkorange);
+				border-radius: var(--radius-m) var(--radius-m) 0 0;
+				font-size: var(--ff-step-1);
+				line-height: var(--ff-line-height-l);
+
+				position: absolute;
+				top: -32px;
+				right: 36px;
+			}
+
+			&:has(> .type-3:hover)::before {
+				background: var(--accent-orange);
+			}
+
 			textarea {
 				&:active,
 				&:focus {
@@ -497,21 +529,6 @@
 				&::selection {
 					background: var(--accent-oranger);
 				}
-			}
-
-			.indicator {
-				display: inline-block;
-				width: 107px;
-				text-align: center;
-				padding-inline: var(--spacing-s);
-				padding-block: var(--spacing-tiny) var(--spacing-xxs);
-				background: var(--accent-oranger);
-				color: var(--black-darkorange);
-				border-radius: var(--radius-m) var(--radius-m) 0 0;
-
-				position: absolute;
-				top: -30px;
-				right: 36px;
 			}
 
 			.type-3 {

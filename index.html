@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
     <title>Maxlength UI</title>
 </head>
 
@@ -75,18 +76,21 @@
             adjustment, obsession over details, and expressiveness because of the euphoria of the result.</p>
 
         <div class="input-area area-1">
-            <textarea name="" id="" maxlength="320">What do you think about beauty?</textarea>
+            <textarea name="" id="" maxlength="320" placeholder="What do you think about beauty?"></textarea>
             <div class="circle-indicator"></div>
             <button class="btn type-1">send thought</button>
         </div>
+        <div class="answer"></div>
         <div class="input-area area-1">
-            <textarea class="area-1" name="" id="" maxlength="320">What do you think about beauty?</textarea>
+            <textarea class="area-1" name="" id="" maxlength="320"
+                placeholder="What do you think about beauty?"></textarea>
             <div class="circle-indicator"></div>
             <div class="input-info">
                 <p>Make a post, would you?</p>
             </div>
             <button class="btn type-1">send thought</button>
         </div>
+        <div class="answer spacer"></div>
 
         <p>What does the future holds for us? That's the very question that drives what we do in the present. We want
             some
@@ -99,13 +103,16 @@
             from a place of fear.</p>
 
         <div class="input-area area-2">
-            <textarea name="" id="">What do you think about future?</textarea>
+            <textarea name="" id="" maxlength="320" placeholder="What do you think about future?"></textarea>
             <button class="btn type-2">send thought</button>
         </div>
+        <div class="answer"></div>
         <div class="input-area area-2">
-            <textarea name="" id="" class="full">What do you think about future?</textarea>
+            <textarea name="" id="" class="full" maxlength="320"
+                placeholder="What do you think about future?"></textarea>
             <button class="btn type-2">send thought</button>
         </div>
+        <div class="answer"></div>
 
         <p>Everyone is baseline smart. Often, people think they are dumb because they don't have the prerequisite
             knowledge to what
@@ -118,11 +125,11 @@
             concise parameters to make them seem smart. You only process probably less than 1% of those parameters and
             you can do
             crazy things.</p>
-        <div class="input-area area-3">
-            <textarea name="" id="">What do you think about smartness?</textarea>
+        <div class="input-area area-3" data-left="320">
+            <textarea name="" id="" maxlength="320" placeholder="What do you think about smartness?"></textarea>
             <button class="btn type-3">send thought</button>
-            <div class="indicator">14 left</div>
         </div>
+        <div class="answer"></div>
     </main>
     <footer class="footer">
         <p>these are just fun things to build as I learn HTML, CSS and JavaScript. That's a navbar and these are
