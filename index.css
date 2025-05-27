@@ -134,6 +134,7 @@
 
 		--grey-bluish: #657581;
 		--grey-bluer: #495a67;
+		--grey-yellow: #fefce1;
 
 		--spacing-tiny: 2px;
 		--spacing-xxs: 4px;
@@ -208,6 +209,11 @@
 }
 
 @layer styling {
+	::selection {
+		background: var(--accent-pink);
+		color: var(--white-main);
+	}
+
 	.btn {
 		background: none;
 		border: none;
@@ -229,6 +235,14 @@
 			}
 
 			z-index: 3;
+		}
+
+		&.type-2 {
+			background: var(--accent-yellow);
+			color: var(--black-darkred);
+			writing-mode: vertical-rl;
+			border-radius: 0 var(--radius-m) var(--radius-m) 0;
+			margin-inline: -2px;
 		}
 	}
 
@@ -306,8 +320,35 @@
 			}
 		}
 
-        &.area-2 {
+		&.area-2 {
+			--value: 0.84;
+			display: flex;
+			background: linear-gradient(
+				to right,
+				#fefce1 calc(var(--value) * 100%),
+				transparent calc(var(--value) * 100%)
+			);
+			padding-inline: var(--spacing-tiny) 0;
+			padding-block: var(--spacing-tiny);
+			border-radius: var(--radius-m);
 
-        }
+			textarea {
+				border-radius: var(--radius-m) 0 0 var(--radius-m);
+
+				&:focus,
+				&:active {
+					outline: none;
+				}
+
+				&.full {
+					background: linear-gradient(
+						to right,
+						#fefce1 calc((var(--value) * 100%) + (var(--value) * 27px)),
+						var(--black-dark)
+							calc((var(--value) * 100%) + (var(--value) * 27px))
+					);
+				}
+			}
+		}
 	}
 }
